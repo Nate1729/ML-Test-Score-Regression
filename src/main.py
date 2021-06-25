@@ -54,9 +54,6 @@ if __name__ == '__main__':
 	print("Error {}".format(round(compute_error(line, points), 3)))
 
 	line = gradient_descent_runner(points, line, learning_rate, num_iterations)
-	print("After {} iterations b={} and m={}". format(num_iterations,
-													round(line[0], 3),
-													round(line[1], 3)),
-													end='')
+	print("After {} iterations b={} and m={}". format(num_iterations, round(line[0], 3), round(line[1], 3)), end='')
 	print(" Error {}".format(round(compute_error(line, points), 3)))
 	
