@@ -31,6 +31,11 @@ def gradient_step(line_start, points, learning_rate):
 	line_new = [b_new, m_new]
 	return line_new
 
+def gradient_descent_runner(points, line_start, learn_rate, num_iters):
+	line = line_start
+	for _ in range(num_iters):
+		line = gradient_step(line, points, learn_rate)
+	return line
 		
 
 
