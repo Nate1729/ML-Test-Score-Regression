@@ -1,4 +1,5 @@
 import csv
+from os import read
 
 def read_data():
 	f_path = '../data/data.csv'
@@ -40,4 +41,22 @@ def gradient_descent_runner(points, line_start, learn_rate, num_iters):
 
 
 if __name__ == '__main__':
-	pass
+	# Reading in Data
+	points = read_data()
+	# Initializing parameters
+	b_initial = 0
+	m_initial = 0
+	learning_rate = 0.0001
+	num_iterations = 1000
+	line = [b_initial, m_initial]
+	# Printing out intial conditions
+	print("Starting gradient descent at b={} and m={}, ".format(b_initial, m_initial), end='')
+	print("Error {}".format(round(compute_error(line, points), 3)))
+
+	line = gradient_descent_runner(points, line, learning_rate, num_iterations)
+	print("After {} iterations b={} and m={}". format(num_iterations,
+													round(line[0], 3),
+													round(line[1], 3)),
+													end='')
+	print(" Error {}".format(round(compute_error(line, points), 3)))
+	
